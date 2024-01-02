@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/9c0eba36ed.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="/search" method="post">
+        <input type="text" id="search_query" name="search_query" placeholder="Search for classes..." required>
+        <button type="submit" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    {% block content %}{% endblock %}
+</body>
+</html>

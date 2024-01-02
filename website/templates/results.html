@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<h1>Search Results for '{{ search_query }}'</h1>
+<form action="/show_info" method="post">
+    {% for result in courses %}
+        <button type="submit" name="selected_result" value="{{ result }}" class="selected_result">{{ result }}</button>
+        <br>
+    {% endfor %}
+{% endblock %}
