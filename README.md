@@ -5,4 +5,4 @@ Welcome! This is an app I made over winter break that makes it a breeze to searc
 
 <h2>🎓 Demonstration 🎓</h2>
 
-![](https://github.com/svadrutk/course-catalog/blob/main/demo2.gif)
+![](https://github.com/svadrutk/course-catalog/blob/main/demo.gif)
