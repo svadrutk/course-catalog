@@ -3,10 +3,12 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
-<h1>Search Results for '{{ search_query }}'</h1>
+<h2 style="color: grey; font-weight: 400; text-align: center; font-style: normal;">results for '{{ search_query }}'</h2>
 <form action="/show_info" method="post">
+    <div class="button-grid">
     {% for result in courses %}
-        <button type="submit" name="selected_result" value="{{ result }}" class="selected_result">{{ result }}</button>
-        <br>
+        <button type="submit" class="grid-item" name="grid-item" value="{{ result }}">{{ result | safe }}</button>
     {% endfor %}
+    </div>
+</form>
 {% endblock %}

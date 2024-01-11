@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import re
 from fuzzywuzzy import fuzz, process
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 DATA_FILE = "newTable.csv"
@@ -14,12 +15,12 @@ def search(string):
     if string.startswith('cs') and string.count('cs') == 1:
         string = string.replace('cs', 'compsci')
     
-    filtered_courses = {}
-    sorted_courses = process.extract(string, classes, limit=10)
+    sorted_courses = process.extract(string, classes, limit=16)
     output_courses = [] 
     for course in sorted_courses:
-        output_courses.append(course[0])
-
+        courseData = df[df['Course Block #'] == course[0]].values[0]
+        output_courses.append("<b>" + courseData[1] + "</b>" + "<br><br>" + courseData[0])
+    print(output_courses)
     ########################################
     # print("Which course would you like to see?")
     # for i in range(len(sorted_courses)):
@@ -38,18 +39,20 @@ def printCourseList(courses):
         
 
 def printCourse(course):
-    
+    course = re.search(r".*<br>([^<]*)$", course).group(1)
     # print all the info
     string = df[df['Course Block #'] == course].values[0]
     output = "" 
-    output += "<h1>" + string[0] + ": " + string[1] + "</h1>"
+    output += "<h1 style=\"text-align: center;\">" + string[0] + ": " + string[1] + "</h1>"
+    output += "<div class=\"info-container\">"
+    output += "<div class=\"info-box\">"
     output += "<h2>Description</h2>"
     output += "<p>" + string[2] + "</p>"
-    output += "<p>-------------------------------------------------</p>"
     output += "<h2>Prerequisites</h2>"
-    print(string[4])
     output += "<p>" + string[4] + "</p>"
-    output += "<p>-------------------------------------------------</p>"
+    output += "</div>"
+    output += "<div class=\"info-box\">"
+    output += "<h2>Stats</h2>"
     output += "<p><b>Course Credits: </b>" + str(string[3]) + "</p>"
     output += "<p><b>Repeatable for Credit: </b>" + string[5] + "</p>"
     output += "<p><b>Last Taught: </b>" + string[6] + "</p>"
@@ -62,6 +65,8 @@ def printCourse(course):
     output += "<p><b>General Education: </b>" + string[13] + "</p>"
     output += "<p><b>Workplace Experience: </b>" + string[14] + "</p>"
     output += "<p><b>Foreign Language: </b>" + string[15] + "</p>"
+    output += "</div>"
+    output += "</div>"
     
     return output
         

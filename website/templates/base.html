@@ -6,12 +6,22 @@
     <title>{% block title %}My Website{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://kit.fontawesome.com/9c0eba36ed.js" crossorigin="anonymous"></script>
+    <script>
+        function redirectToPage() {
+            window.location.href = "/";
+        }
+    </script>
+    
 </head>
-<body>
-    <form action="/search" method="post">
-        <input type="text" id="search_query" name="search_query" placeholder="Search for classes..." required>
-        <button type="submit" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+        <form action="/search" method="post">
+          <div class="container">
+            <button type="button" class="submit" formnovalidate onclick="redirectToPage()"><i class="fa-solid fa-house"></i></button>
+            <input type="text" id="search_query" name="search_query" placeholder="Search for classes..." required>
+            <button type="submit" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </form>
+        <body>
+
     {% block content %}{% endblock %}
 </body>
 </html>

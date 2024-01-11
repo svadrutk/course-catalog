@@ -1,27 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
 * {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif ;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0; 
+    padding: 0;
 }
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-bottom: 3px solid #c5050c;
+  margin: 0;
+}
+
 #search_query {
-    width: 90%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  flex: 1;
+  padding: 1%;
+  font-size: 2rem;
+  margin: 0;
+  border: none;
 }
 
 .submit {
-    width: 8%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 1% 3%;
+  border: none;
+  font-size: 2rem;
+  margin: 0;
+  
+
+} 
+.submit:hover {
+  background-color: #c5050c;
+  color: white;
 }
+
+@media (max-width: 600px) {
+  #search_query {
+    width: 100%; /* Set to 100% width on smaller screens */
+    margin-right: 0;
+  }
+
+  .submit {
+    width: 100%; /* Set to 100% width on smaller screens */
+    margin-top: 10px; /* Add some spacing between the search bar and the button */
+    margin-bottom: 10px; /* Add some spacing between the search bar and the button */
+  }
+  .button-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(1, 22%); /* Adjust the number and size as needed */
+    row-gap: 1rem;
+    margin: 0 1rem;
+    /* align the buttons to the center */
+    justify-content: center;
+}
+}
+
+.index_header {
+  font-size: 3rem;
+  font-weight: 600;
+  /* center the text */
+}
+
+.index_subheader {
+  font-size: 2rem;
+  font-weight: 500;
+  color: grey;
+  margin: -0.5rem 0;
+}
+
+.index_block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1rem 0rem;;
+    font-size: 1.5rem;
+  }
+
 h1 {
     font-size: 2rem;
     font-weight: 600;
@@ -35,13 +93,51 @@ h2 {
     margin: 1rem 0;
     font-style: italic;
 }
-.selected_result {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(100px, 1fr)); /* Example grid layout */
+  gap: 0.5rem; /* Adjust the gap between grid items */
+    margin: 1rem;
+    /* align the buttons to the center */
+    box-sizing: border-box;
+    justify-content: center;
 }
+form {
+  box-sizing: border-box;
+}
+
+.grid-item {
+  text-align: center;
+  padding: 10px;
+  height: 7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+.grid-item:hover {
+  border-top: 3px solid #c5050c;
+}
+
+.info-container {
+  display: flex;
+}
+
+.info-box {
+  flex: 1;
+  color: black;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+
+
