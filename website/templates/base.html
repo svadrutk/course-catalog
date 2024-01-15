@@ -11,13 +11,13 @@
             window.location.href = "/";
         }
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
         <form action="/search" method="post">
           <div class="container">
-            <button type="button" class="submit" formnovalidate onclick="redirectToPage()"><i class="fa-solid fa-house"></i></button>
-            <input type="text" id="search_query" name="search_query" placeholder="Search for classes..." required>
-            <button type="submit" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button" class="submit" aria-label="Home" formnovalidate onclick="redirectToPage()"><i class="fa-solid fa-house"></i></button>
+            <input type="text" id="search_query" autocomplete="off" name="search_query" placeholder="Search for class codes..." required>
+            <button type="submit" aria-label="Search" class="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </form>
         <body>

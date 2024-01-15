@@ -29,7 +29,7 @@
   border: none;
   font-size: 2rem;
   margin: 0;
-  
+  cursor: pointer;
 
 } 
 .submit:hover {
@@ -37,27 +37,54 @@
   color: white;
 }
 
+.info-subbox {
+  flex: 1;
+  padding: 3%;
+  font-size: 1.5rem;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: none;
+  background-color: #ebe9e9;
+  border-radius: 20px;
+}
 @media (max-width: 600px) {
   #search_query {
-    width: 100%; /* Set to 100% width on smaller screens */
-    margin-right: 0;
+    width: 90%; /* Set to 100% width on smaller screens */
+    margin-top: 10px; 
+    margin-left: 10px; 
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .container {
+    flex-direction: column;
   }
 
   .submit {
-    width: 100%; /* Set to 100% width on smaller screens */
+    width: 90%; /* Set to 100% width on smaller screens */
     margin-top: 10px; /* Add some spacing between the search bar and the button */
     margin-bottom: 10px; /* Add some spacing between the search bar and the button */
   }
   .button-grid {
     display: grid;
-    width: 100%;
-    grid-template-columns: repeat(1, 22%); /* Adjust the number and size as needed */
+    width: 90%;
+    grid-template-columns: 50% 50% !important; /* Adjust the number and size as needed */
     row-gap: 1rem;
     margin: 0 1rem;
     /* align the buttons to the center */
     justify-content: center;
+  }
+  .grid-item {
+    height: 5rem;
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  .info-box {
+    flex-basis: 100% !important;
+  }
 }
-}
+
 
 .index_header {
   font-size: 3rem;
@@ -94,6 +121,21 @@ h2 {
     font-style: italic;
 }
 
+
+
+.graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, 1fr)); /* Example grid layout */
@@ -113,14 +155,15 @@ form {
   height: 7rem;
   font-size: 1rem;
   border: none;
-  border-radius: 5px;
 }
 .grid-item:hover {
   border-top: 3px solid #c5050c;
+  background-color: rgb(210, 210, 210); 
 }
 
 .info-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .info-box {
@@ -131,7 +174,10 @@ form {
   border-radius: 8px;
 }
 
-
+a {
+  text-decoration: underline;
+  color: #0479A8;
+}
 
 input:focus,
 select:focus,

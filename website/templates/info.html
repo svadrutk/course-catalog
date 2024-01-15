@@ -4,4 +4,42 @@
 
 {% block content %}
 {{ result_info | safe }}
+
+<div class="info-box">
+<h2 style="font-weight: 600; text-align: center; text-decoration: underline; font-style: normal; margin-bottom: 5%; font-size: 2.5rem;">Grade Distribution</h2>
+<div class="graph">
+        <canvas id="myChart"></canvas>
+</div>
+</div>
+</div>
+<script>
+        // JavaScript code to create and update the pie chart
+    // Use Jinja templating to embed Python data
+    var pythonData = {{ values | tojson | safe }};
+    
+// Get the canvas element
+var ctx = document.getElementById('myChart').getContext('2d');
+
+    // Create the data object
+    var data = {
+        labels: ['A', 'AB', 'B', 'BC', 'C', 'D', 'F'],
+        datasets: [{
+            data: pythonData,
+            backgroundColor: ['#1f78b4', '#b2df8a', '#33a02c', '#e31a1c', '#fd8d3c', '#fdbe85', '#a6cee3'],
+        }],
+    };
+
+    // Create the pie chart
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+                plugins: {
+                        legend: {
+                                display: true,
+                        }
+                }
+            },
+    });
+</script>
 {% endblock %}

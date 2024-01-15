@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import searchLib
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -20,7 +19,10 @@ def show_info():
     selected_result = request.form['grid-item']
     # Assume you have a function that retrieves information based on the selected result
     result_info = searchLib.printCourse(selected_result)
-    return render_template('info.html', result_info=result_info)
+    gradeDF = searchLib.getGradeDistribution(selected_result)   
+    values = gradeDF['values'].tolist()
+
+    return render_template('info.html', result_info=result_info, values=values)
 
 if __name__ == '__main__':
     app.run(debug=True)
