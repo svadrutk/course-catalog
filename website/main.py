@@ -19,10 +19,11 @@ def show_info():
     selected_result = request.form['grid-item']
     # Assume you have a function that retrieves information based on the selected result
     result_info = searchLib.printCourse(selected_result)
-    gradeDF = searchLib.getGradeDistribution(selected_result)   
+    gradeDF = searchLib.getGradeDistribution(selected_result)  
+    gpa = searchLib.getGPA(gradeDF) 
     values = gradeDF['values'].tolist()
 
-    return render_template('info.html', result_info=result_info, values=values)
+    return render_template('info.html', result_info=result_info, values=values, gpa=gpa)
 
 if __name__ == '__main__':
     app.run(debug=True)

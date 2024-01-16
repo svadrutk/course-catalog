@@ -6,7 +6,6 @@
 }
 
 
-
 .container {
   display: flex;
   align-items: center;
@@ -29,6 +28,7 @@
   border: none;
   font-size: 2rem;
   margin: 0;
+  background-color: #e6e6e6;
   cursor: pointer;
 
 } 
@@ -46,45 +46,8 @@
   border: none;
   background-color: #ebe9e9;
   border-radius: 20px;
+  line-height: 1.3;
 }
-@media (max-width: 600px) {
-  #search_query {
-    width: 90%; /* Set to 100% width on smaller screens */
-    margin-top: 10px; 
-    margin-left: 10px; 
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  .container {
-    flex-direction: column;
-  }
-
-  .submit {
-    width: 90%; /* Set to 100% width on smaller screens */
-    margin-top: 10px; /* Add some spacing between the search bar and the button */
-    margin-bottom: 10px; /* Add some spacing between the search bar and the button */
-  }
-  .button-grid {
-    display: grid;
-    width: 90%;
-    grid-template-columns: 50% 50% !important; /* Adjust the number and size as needed */
-    row-gap: 1rem;
-    margin: 0 1rem;
-    /* align the buttons to the center */
-    justify-content: center;
-  }
-  .grid-item {
-    height: 5rem;
-    font-size: 1rem;
-  }
-  h1 {
-    font-size: 1.8rem !important;
-  }
-  .info-box {
-    flex-basis: 100% !important;
-  }
-}
-
 
 .index_header {
   font-size: 3rem;
@@ -108,7 +71,7 @@
   }
 
 h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     margin: 1rem 0;
     text-decoration: underline;
@@ -121,8 +84,6 @@ h2 {
     font-style: italic;
 }
 
-
-
 .graph {
   display: flex;
   justify-content: center;
@@ -131,11 +92,13 @@ h2 {
   margin-top: 3%;
   margin-bottom: 3%;
 }
+
 canvas {
   width: 100%;
   height: 100%;
   align-items: center;
 }
+
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(100px, 1fr)); /* Example grid layout */
@@ -145,6 +108,7 @@ canvas {
     box-sizing: border-box;
     justify-content: center;
 }
+
 form {
   box-sizing: border-box;
 }
@@ -156,6 +120,7 @@ form {
   font-size: 1rem;
   border: none;
 }
+
 .grid-item:hover {
   border-top: 3px solid #c5050c;
   background-color: rgb(210, 210, 210); 
@@ -169,8 +134,9 @@ form {
 .info-box {
   flex: 1;
   color: black;
-  padding: 20px;
-  margin: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 1rem;
   border-radius: 8px;
 }
 
@@ -183,6 +149,71 @@ input:focus,
 select:focus,
 textarea:focus {
     outline: none;
+}
+
+@media (max-width: 600px) {
+  #search_query {
+    width: 90%; /* Set to 100% width on smaller screens */
+    margin-top: 10px; 
+    margin-left: 10px; 
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  .container {
+    flex-direction: column;
+  }
+
+  .submit {
+    width: 90%; /* Set to 100% width on smaller screens */
+    margin-top: 10px; /* Add some spacing between the search bar and the button */
+    margin-bottom: 10px; /* Add some spacing between the search bar and the button */
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .button-grid {
+    display: grid;
+    width: 90%;
+    grid-template-columns: 50% 50% !important; /* Adjust the number and size as needed */
+    row-gap: 1rem;
+    margin: 0 1rem;
+    /* align the buttons to the center */
+    justify-content: center;
+  }
+  .grid-item {
+    height: auto !important;
+    font-size: 1rem;
+  }
+
+  .index_header {
+    font-size: 2rem !important;
+    padding: 0;
+  }
+  .index_subheader {
+    font-size: 1.5rem !important;
+    padding: 0;
+  }
+  .info-box {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .info-subbox {
+    padding: 2rem;
+    text-wrap: balance;
+    hyphens: auto;
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2rem !important;
+    padding: 0;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+    padding: 0;
+  }
 }
 
 
